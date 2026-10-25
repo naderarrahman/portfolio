@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Simple theme reset.
+ * The shadcn semantic tokens below keep standard utilities such as
+ * bg-background, bg-card, border-border, and text-muted-foreground working.
+ */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent-soft);
+  --color-accent-foreground: var(--accent-soft-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --bg-color: #faf9f6;
+  --text-color: #1c1c1c;
+  --text-muted: #666666;
+  --accent: #c27a3e;
+  --border-color: #e5e5e5;
+
+  --background: var(--bg-color);
+  --foreground: var(--text-color);
+  --card: #ffffff;
+  --card-foreground: var(--text-color);
+  --popover: #ffffff;
+  --popover-foreground: var(--text-color);
+  --primary: var(--accent);
+  --primary-foreground: #1c1917;
+  --secondary: #f2ede4;
+  --secondary-foreground: var(--text-color);
+  --muted: #f2ede4;
+  --muted-foreground: var(--text-muted);
+  --accent-soft: #f4e8d9;
+  --accent-soft-foreground: #1c1917;
+  --destructive: #b42318;
+  --border: var(--border-color);
+  --input: var(--border-color);
+  --ring: var(--accent);
+  --radius: 0.625rem;
+}
+
+.dark {
+  --bg-color: #0c0a09;
+  --text-color: #ededed;
+  --text-muted: #a3a3a3;
+  --border-color: #262626;
+
+  --background: var(--bg-color);
+  --foreground: var(--text-color);
+  --card: #151210;
+  --card-foreground: var(--text-color);
+  --popover: #151210;
+  --popover-foreground: var(--text-color);
+  --primary: var(--accent);
+  --primary-foreground: #1c1917;
+  --secondary: #211d19;
+  --secondary-foreground: var(--text-color);
+  --muted: #211d19;
+  --muted-foreground: var(--text-muted);
+  --accent-soft: #2a211a;
+  --accent-soft-foreground: #f3d7b8;
+  --destructive: #f97066;
+  --border: var(--border-color);
+  --input: var(--border-color);
+  --ring: var(--accent);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dot pattern behind the page content. */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: radial-gradient(var(--text-color) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.dark body::before {
+  opacity: 0.08;
+}
