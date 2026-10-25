@@ -2,11 +2,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Simple theme reset.
- * The shadcn semantic tokens below keep standard utilities such as
- * bg-background, bg-card, border-border, and text-muted-foreground working.
- */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -36,20 +31,25 @@
 }
 
 :root {
+  /* Core Warm Colors */
   --bg-color: #faf9f6;
   --text-color: #1c1c1c;
   --text-muted: #666666;
-  --accent: #c27a3e;
+  --accent: #c27a3e; /* Warm earthy orange */
   --border-color: #e5e5e5;
 
+  /* shadcn Semantic Tokens */
   --background: var(--bg-color);
   --foreground: var(--text-color);
   --card: #ffffff;
   --card-foreground: var(--text-color);
   --popover: #ffffff;
   --popover-foreground: var(--text-color);
+  
+  /* Primary Button uses Accent Color with White Text */
   --primary: var(--accent);
-  --primary-foreground: #1c1917;
+  --primary-foreground: #ffffff; 
+  
   --secondary: #f2ede4;
   --secondary-foreground: var(--text-color);
   --muted: #f2ede4;
@@ -64,6 +64,7 @@
 }
 
 .dark {
+  /* Dark Mode Warm Colors */
   --bg-color: #0c0a09;
   --text-color: #ededed;
   --text-muted: #a3a3a3;
@@ -75,8 +76,10 @@
   --card-foreground: var(--text-color);
   --popover: #151210;
   --popover-foreground: var(--text-color);
+  
   --primary: var(--accent);
-  --primary-foreground: #1c1917;
+  --primary-foreground: #ffffff;
+  
   --secondary: #211d19;
   --secondary-foreground: var(--text-color);
   --muted: #211d19;
@@ -96,7 +99,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Dot pattern behind the page content. */
 body::before {
   content: "";
   position: fixed;
