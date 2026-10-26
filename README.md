@@ -26,7 +26,7 @@
 
 ## 📸 Project Overview
 
-![Portfolio Overview](./overview/overview.jpg)
+![Portfolio Overview](./public/overview/overview.jpg)
 
 ---
 
