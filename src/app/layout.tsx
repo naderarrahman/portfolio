@@ -22,7 +22,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <Navbar />
 
         <ThemeProvider
           attribute="class"
@@ -31,9 +30,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ScrollProgressBar />
-          {children}
+          <Navbar />
+         <main> {children}</main>
+          <Footer />
         </ThemeProvider>
-        <Footer />
+
       </body>
     </html>
   )
