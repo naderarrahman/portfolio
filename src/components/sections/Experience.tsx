@@ -1,34 +1,14 @@
+import { Briefcase } from "lucide-react"
+
 import { FadeIn } from "@/components/ui/FadeIn"
 import { profile } from "@/data/profile"
 
-import { Timeline, type TimelineItem } from "./Timeline"
-
-const fallbackExperience: TimelineItem = {
-  title: "Full-Stack Developer",
-  subtitle: "Your company",
-  date: "2025 — Present",
-  description: [
-    "Add a short summary of your responsibilities and the impact you had in this role.",
-    "Replace this placeholder with your own experience in src/data/profile.ts.",
-  ],
-}
-
 function Experience() {
-  const items: TimelineItem[] =
-    profile.experience.length > 0
-      ? profile.experience.map((job) => ({
-          title: job.role,
-          subtitle: job.company,
-          date: job.duration,
-          description: job.description,
-        }))
-      : [fallbackExperience]
-
   return (
     <section
       id="experience"
       aria-labelledby="experience-heading"
-      className="scroll-mt-16 border-t border-border/60"
+      className="relative scroll-mt-16 border-t border-border/60 bg-muted/5"
     >
       <div className="mx-auto w-full max-w-5xl px-6 py-24 sm:py-32">
         <FadeIn>
@@ -45,11 +25,49 @@ function Experience() {
             A timeline of the roles where I have built products, collaborated
             with teams, and grown as a developer.
           </p>
-
-          <div className="mt-12 max-w-3xl">
-            <Timeline items={items} />
-          </div>
         </FadeIn>
+
+        {/* Professional Two-Column Timeline */}
+        <div className="relative mt-16 border-l-2 border-border/50 ml-4 md:ml-6 space-y-12 pb-4">
+          {profile.experience.map((job, index) => (
+            <FadeIn key={index} delay={index * 0.1}>
+              <div className="relative pl-8 md:pl-12">
+                
+                {/* Timeline Dot / Icon */}
+                <span className="absolute -left-[21px] top-1 flex size-10 items-center justify-center rounded-full bg-background border-2 border-border shadow-sm">
+                  <Briefcase className="size-4 text-primary" />
+                </span>
+
+                <div className="flex flex-col gap-6 md:flex-row md:gap-12">
+                  {/* Left Column: Role & Company */}
+                  <div className="md:w-5/12">
+                    <h3 className="text-xl font-bold text-foreground">
+                      {job.role}
+                    </h3>
+                    <p className="mt-1 text-base font-medium text-primary">
+                      {job.company}
+                    </p>
+                    <span className="mt-3 inline-block rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground">
+                      {job.duration}
+                    </span>
+                  </div>
+
+                  {/* Right Column: Responsibilities */}
+                  <div className="md:w-7/12">
+                    <ul className="space-y-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                      {job.description.map((desc, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary/60" />
+                          <span>{desc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   )

@@ -1,4 +1,3 @@
-// Placeholder content — replace the contact details, links, and resume with real ones.
 
 export interface Socials {
   github: string
@@ -48,7 +47,7 @@ export const profile: Profile = {
   designation: "Full-Stack Web Developer",
   intro:
     "I build fast, accessible web applications with clean interfaces, thoughtful interactions, and dependable backends.",
-  resumeUrl: "#",
+  resumeUrl: "#", 
   socials: {
     github: "https://github.com/naderarrahman",
     linkedin: "https://www.linkedin.com/in/naderarrahman",
@@ -58,63 +57,75 @@ export const profile: Profile = {
     "I'm a full-stack developer based in Noakhali, Bangladesh, with over a year of experience turning ideas into production-ready products. I enjoy working across the stack — from shaping a clear, accessible interface in React and Next.js to designing APIs and data models that hold up over time.\n\nMy focus is on writing code that is easy to reason about, keeping performance in check, and paying attention to the small details that make a product feel considered. When I'm not building, I'm usually exploring design systems, contributing to side projects, or learning something new.",
   location: "Noakhali, Bangladesh",
   experienceYears: 1,
-  email: "hello@naderarrahman.dev",
-  phone: "+880 1XXX-XXXXXX",
+  email: "naderarrahman@gmail.com",
+  phone: "+8801314726425",
+  
   education: [
     {
-      degree: "B.Sc. in Computer Science & Engineering",
-      institution: "University of Dhaka",
-      year: "2020 — 2024",
+      degree: "BSS (Honours) in Information Science and Library Management (ISLM)",
+      institution: "Noakhali Science and Technology University (NSTU)",
+      year: "2023 — Present (4th Year / 7th Semester)",
       description:
-        "Studied software engineering, data structures, algorithms, and database systems. Graduated with a final-year project focused on building an accessible, full-stack web application.",
+        "Studying information systems, digital preservation, database management, and web information retrieval while actively building modern full-stack web applications.",
     },
     {
-      degree: "Higher Secondary Certificate",
-      institution: "Notre Dame College, Dhaka",
-      year: "2017 — 2019",
+      degree: "Higher Secondary Certificate (HSC) — Science",
+      institution: "Mohammad Chowdhury (MC) Academy, Golapganj, Sylhet",
+      year: "2022",
       description:
-        "Completed the science stream with a focus on mathematics, physics, and computer science.",
+        "Completed higher secondary education in the science stream with a strong foundation in mathematics, physics, and computer science, achieving GPA 5.00.",
     },
   ],
+  
   certifications: [
     {
-      title: "Meta Front-End Developer Professional Certificate",
-      issuer: "Coursera",
+      title: "Professional WordPress Mastery Zero to Hero (Online)",
+      issuer: "UY LAB",
       year: "2025",
-      link: "https://example.com/certificates/meta-front-end-developer",
+      link: "/certificates/professional-wordpress-mastery.pdf",
     },
     {
-      title: "AWS Certified Cloud Practitioner",
-      issuer: "Amazon Web Services",
-      year: "2024",
-      link: "https://example.com/certificates/aws-cloud-practitioner",
+      title: "School Library Leadership Program (Fellowship)",
+      issuer: "Librarian Voice",
+      year: "2025",
+      link: "/certificates/library-leadership.pdf",
     },
     {
-      title: "JavaScript Algorithms and Data Structures",
-      issuer: "freeCodeCamp",
-      year: "2023",
-      link: "https://example.com/certificates/javascript-algorithms",
+      title: "Certificate of Appreciation (Campus Representative)",
+      issuer: "Librarian Voice",
+      year: "2025",
+      link: "/certificates/campus-representative.jpg",
     },
   ],
+  
   experience: [
     {
-      role: "Full-Stack Developer",
-      company: "Independent / Freelance",
+      role: "Independent Full-Stack Web Developer",
+      company: "Self-Employed / Personal Projects",
       duration: "2025 — Present",
       description: [
-        "Build and maintain responsive web applications with Next.js, TypeScript, and PostgreSQL.",
-        "Translate Figma designs into accessible, reusable components with Tailwind CSS.",
-        "Work directly with clients to scope features, estimate work, and ship on schedule.",
+        "Architect and develop full-stack web applications using React, Next.js, TypeScript, and MongoDB.",
+        "Design clean, responsive user interfaces with Tailwind CSS following modern UI/UX principles.",
+        "Implement secure client-side authentication, REST APIs, and database integrations for production-ready web apps.",
       ],
     },
     {
-      role: "Frontend Developer Intern",
-      company: "SoftUp Technologies",
-      duration: "2024 — 2025",
+      role: "Trainee Full-Stack Web Engineer",
+      company: "Programming Hero (Batch 14)",
+      duration: "2026 — Present",
       description: [
-        "Developed responsive marketing pages and dashboard views for early-stage SaaS products.",
-        "Collaborated with senior developers on component architecture and API integration.",
-        "Wrote reusable form and table patterns that reduced repeated UI work.",
+        "Enrolled in an intensive AI-driven full-stack web engineering program focused on modern JavaScript and TypeScript ecosystems.",
+        "Building hands-on, real-world web projects, mastering frontend architecture, backend RESTful APIs, and algorithmic problem-solving.",
+      ],
+    },
+    {
+      role: "WordPress Web Developer (Trainee)",
+      company: "UY LAB",
+      duration: "Mar 2025 — Jun 2025",
+      description: [
+        "Completed the 'Professional WordPress Mastery Zero to Hero' course at UY LAB.",
+        "Mastered complete WordPress site building, theme customization, Elementor page design, and WooCommerce store setup.",
+        "Gained hands-on expertise in performance optimization, site security, and plugin management for web applications.",
       ],
     },
   ],
