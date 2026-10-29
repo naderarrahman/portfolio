@@ -47,7 +47,7 @@ const designations = [
   "Full-Stack Web Developer",
   "LIS Student",
   "Next.js Developer",
-  "React Develoer",
+  "React Developer",
   "UI/UX Enthusiast",
 ]
 
@@ -65,7 +65,7 @@ function Hero() {
       >
         {/* 1. Clockwise Rotating Rectangular Box (Helge Style - Sharp & Visible) */}
         <div className="animate-rotate-shade absolute flex h-[150vh] w-[150vw] items-center justify-center">
-          <div className="h-[80vh] w-[120vw] bg-gradient-to-r from-transparent via-primary/10 to-transparent dark:via-primary/5" />
+          <div className="h-[80vh] w-[120vw] bg-gradient-to-r from-transparent via-primary/10 to-transparent dark:via-primary/20" />
         </div>
 
         {/* 2. Subtle Dot Pattern */}

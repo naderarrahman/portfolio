@@ -47,11 +47,11 @@ export const profile: Profile = {
   designation: "Full-Stack Web Developer",
   intro:
     "I build fast, accessible web applications with clean interfaces, thoughtful interactions, and dependable backends.",
-  resumeUrl: "#", 
+  resumeUrl: "/resume/Nader_Ar_Rahman_Resume.pdf", 
   socials: {
     github: "https://github.com/naderarrahman",
     linkedin: "https://www.linkedin.com/in/naderarrahman",
-    twitter: "https://x.com/naderarrahman",
+    twitter: "https://x.com/naderArRahman03",
   },
   aboutMe:
     "I'm a full-stack developer based in Noakhali, Bangladesh, with over a year of experience turning ideas into production-ready products. I enjoy working across the stack — from shaping a clear, accessible interface in React and Next.js to designing APIs and data models that hold up over time.\n\nMy focus is on writing code that is easy to reason about, keeping performance in check, and paying attention to the small details that make a product feel considered. When I'm not building, I'm usually exploring design systems, contributing to side projects, or learning something new.",
