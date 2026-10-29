@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 
-import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar" // নতুন ইমপোর্ট
+import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Footer } from "@/components/layout/Footer"
 import { Navbar } from "@/components/layout/Navbar"
@@ -22,7 +22,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -31,10 +30,9 @@ export default function RootLayout({
         >
           <ScrollProgressBar />
           <Navbar />
-         <main> {children}</main>
+          <main>{children}</main>
           <Footer />
         </ThemeProvider>
-
       </body>
     </html>
   )

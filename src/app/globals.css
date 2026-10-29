@@ -31,25 +31,20 @@
 }
 
 :root {
-  /* Core Warm Colors */
   --bg-color: #faf9f6;
   --text-color: #1c1c1c;
   --text-muted: #666666;
-  --accent: #c27a3e; /* Warm earthy orange */
+  --accent: #c27a3e; 
   --border-color: #e5e5e5;
 
-  /* shadcn Semantic Tokens */
   --background: var(--bg-color);
   --foreground: var(--text-color);
   --card: #ffffff;
   --card-foreground: var(--text-color);
   --popover: #ffffff;
   --popover-foreground: var(--text-color);
-  
-  /* Primary Button uses Accent Color with White Text */
   --primary: var(--accent);
   --primary-foreground: #ffffff; 
-  
   --secondary: #f2ede4;
   --secondary-foreground: var(--text-color);
   --muted: #f2ede4;
@@ -64,7 +59,6 @@
 }
 
 .dark {
-  /* Dark Mode Warm Colors */
   --bg-color: #0c0a09;
   --text-color: #ededed;
   --text-muted: #a3a3a3;
@@ -76,10 +70,8 @@
   --card-foreground: var(--text-color);
   --popover: #151210;
   --popover-foreground: var(--text-color);
-  
   --primary: var(--accent);
   --primary-foreground: #ffffff;
-  
   --secondary: #211d19;
   --secondary-foreground: var(--text-color);
   --muted: #211d19;
@@ -99,7 +91,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Subtle Dot Pattern */
 body::before {
   content: "";
   position: fixed;
@@ -118,7 +109,6 @@ body::before {
   opacity: 0.08;
 }
 
-/* Fluid Gradient / Aurora Background Animation */
 @keyframes blob-1 {
   0%, 100% { transform: translate(0px, 0px) scale(1); }
   33% { transform: translate(30px, -50px) scale(1.1); }
@@ -139,7 +129,17 @@ body::before {
 .animate-blob-2 { animation: blob-2 18s infinite alternate ease-in-out; }
 .animate-blob-3 { animation: blob-3 20s infinite alternate ease-in-out; }
 
-/* Skills Marquee Animation */
+/* Fixed Rotating Shade Animation */
+@keyframes rotate-shade {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-rotate-shade {
+  animation: rotate-shade 30s linear infinite;
+  will-change: transform;
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }

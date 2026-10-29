@@ -11,7 +11,8 @@ const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" }, // নতুন
+  { label: "Experience", href: "#experience" },
+  { label: "Education", href: "#education" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ] as const
@@ -40,7 +41,7 @@ function Navbar() {
           }
         })
       },
-      { rootMargin: "-20% 0px -80% 0px" } // Triggers when section is near top
+      { rootMargin: "-20% 0px -80% 0px" }
     )
 
     navLinks.forEach((link) => {
@@ -56,8 +57,7 @@ function Navbar() {
     setIsOpen(false)
     const element = document.querySelector(href)
     if (element) {
-      // Smooth scroll to element with offset for sticky navbar
-      const offset = 64 // Navbar height
+      const offset = 100 
       const elementPosition = element.getBoundingClientRect().top + window.scrollY
       window.scrollTo({
         top: elementPosition - offset,
@@ -67,93 +67,96 @@ function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-6">
-        
-        {/* Logo */}
-        <a
-          href="#home"
-          className="text-sm font-semibold tracking-tight"
-          onClick={(e) => handleNavClick(e, "#home")}
-        >
-          {profile.name}
-        </a>
-
-        {/* Desktop Menu */}
-        <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.href.substring(1)
-            return (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className={`relative rounded-md px-2 py-2 text-sm transition-colors hover:text-foreground ${
-                  isActive
-                    ? "text-foreground font-medium"
-                    : "text-muted-foreground"
-                }`}
-              >
-                {link.label}
-                
-                {/* Active Indicator (Warm Dot) */}
-                {isActive && (
-                  <span className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-primary" />
-                )}
-              </a>
-            )
-          })}
-        </nav>
-
-        {/* Right side (Theme Toggle & Mobile Menu Button) */}
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isOpen}
-            aria-controls="mobile-navigation"
-            onClick={() => setIsOpen((open) => !open)}
-          >
-            {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-          </Button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <nav
-        id="mobile-navigation"
-        aria-label="Mobile"
-        className={`overflow-hidden transition-all duration-300 md:hidden ${
-          isOpen ? "border-t border-border/60 max-h-96" : "max-h-0"
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:px-6 sm:pt-6">
+      
+      {/* Main Container: Matches max-w-5xl like other sections */}
+      <div 
+        className={`mx-auto flex w-full max-w-5xl flex-col border border-border/50 bg-background/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-xl transition-all duration-300 dark:bg-background/60 ${
+          isOpen ? "rounded-3xl" : "rounded-full"
         }`}
       >
-        <div className="mx-auto flex w-full max-w-5xl flex-col px-6 py-2">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.href.substring(1)
-            return (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`flex items-center justify-between rounded-md px-2 py-3 text-sm transition-colors hover:bg-muted/60 hover:text-foreground ${
-                  isActive
-                    ? "text-foreground font-medium bg-muted/30"
-                    : "text-muted-foreground"
-                }`}
-                onClick={(e) => handleNavClick(e, link.href)}
-              >
-                {link.label}
-                {/* Mobile Active Indicator */}
-                {isActive && (
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                )}
-              </a>
-            )
-          })}
+        <div className="flex h-14 sm:h-16 w-full items-center justify-between px-5 sm:px-8">
+          
+          {/* Logo */}
+          <a
+            href="#home"
+            className="text-sm sm:text-base font-bold tracking-tight text-foreground transition-colors hover:text-primary"
+            onClick={(e) => handleNavClick(e, "#home")}
+          >
+            {profile.name}
+          </a>
+
+          {/* Desktop Menu */}
+          <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1)
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`relative rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-muted/50 ${
+                    isActive
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {link.label}
+                  
+                  {/* Premium Active Dot Indicator */}
+                  {isActive && (
+                    <span className="absolute bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-primary shadow-[0_0_8px_rgba(194,122,62,0.8)]" />
+                  )}
+                </a>
+              )
+            })}
+          </nav>
+
+          {/* Right side (Theme Toggle & Mobile Menu Button) */}
+          <div className="flex items-center gap-1 sm:gap-2">
+            <ThemeToggle />
+            <Button
+              variant="ghost"
+              size="icon"
+              className="lg:hidden rounded-full"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              onClick={() => setIsOpen((open) => !open)}
+            >
+              {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            </Button>
+          </div>
         </div>
-      </nav>
+
+        {/* Mobile Menu (Expands inside the floating box) */}
+        <nav
+          className={`overflow-hidden transition-all duration-300 lg:hidden ${
+            isOpen ? "border-t border-border/50 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="flex flex-col px-4 py-4 space-y-1">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1)
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`flex items-center justify-between rounded-full px-4 py-2.5 text-sm transition-colors hover:bg-muted/60 ${
+                    isActive
+                      ? "text-foreground font-medium bg-muted/50"
+                      : "text-muted-foreground"
+                  }`}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                >
+                  {link.label}
+                  {isActive && (
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  )}
+                </a>
+              )
+            })}
+          </div>
+        </nav>
+      </div>
     </header>
   )
 }
