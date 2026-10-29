@@ -76,11 +76,11 @@ function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:px-6 sm:pt-6">
       
-      {/* Main Floating Navbar Container */}
       <div 
-        className={`mx-auto flex w-full max-w-5xl flex-col border border-border/80 bg-white/80 shadow-lg shadow-black/5 backdrop-blur-2xl transition-all duration-300 dark:border-white/20 dark:bg-[#1a1a1a]/80 dark:shadow-white/5 ${
-          isOpen ? "rounded-3xl" : "rounded-full"
-        }`}
+        className={cn(
+          "mx-auto flex w-full max-w-5xl flex-col border border-border/80 bg-white/80 shadow-lg shadow-black/5 backdrop-blur-2xl transition-all duration-300 dark:border-white/20 dark:bg-[#1a1a1a]/80 dark:shadow-white/5",
+          isOpen ? "rounded-3xl" : "rounded-[2rem] lg:rounded-full"
+        )}
       >
         <div className="flex h-14 sm:h-16 w-full items-center justify-between px-5 sm:px-8">
           
@@ -142,45 +142,48 @@ function Navbar() {
           </div>
         </div>
 
-        <nav
-          className={`overflow-hidden transition-all duration-300 lg:hidden ${
-            isOpen ? "border-t border-border/50 opacity-100" : "max-h-0 opacity-0"
-          }`}
+        <div
+          className={cn(
+            "grid overflow-hidden transition-all duration-300 ease-in-out lg:hidden",
+            isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+          )}
         >
-          <div className="flex flex-col px-4 py-4 space-y-1">
-            {navLinks.map((link) => {
-              const isActive = pathname === "/" && activeSection === link.href.substring(1)
-              return (
-                <Link
-                  key={link.href}
-                  href={`/${link.href}`}
-                  className={`flex items-center justify-between rounded-full px-4 py-2.5 text-sm transition-colors hover:bg-muted/60 ${
-                    isActive
-                      ? "text-foreground font-medium bg-muted/50"
-                      : "text-muted-foreground"
-                  }`}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                >
-                  {link.label}
-                  {isActive && (
-                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  )}
-                </Link>
-              )
-            })}
+          <div className="min-h-0">
+            <div className="flex flex-col border-t border-border/50 px-4 pb-4 pt-2 space-y-1">
+              {navLinks.map((link) => {
+                const isActive = pathname === "/" && activeSection === link.href.substring(1)
+                return (
+                  <Link
+                    key={link.href}
+                    href={`/${link.href}`}
+                    className={`flex items-center justify-between rounded-full px-4 py-2.5 text-sm transition-colors hover:bg-muted/60 ${
+                      isActive
+                        ? "text-foreground font-medium bg-muted/50"
+                        : "text-muted-foreground"
+                    }`}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                  >
+                    {link.label}
+                    {isActive && (
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    )}
+                  </Link>
+                )
+              })}
 
-            <Link
-              href="/#contact"
-              onClick={(e) => handleNavClick(e, "#contact")}
-              className={cn(
-                buttonVariants({ variant: "default", size: "default" }),
-                "mt-4 w-full rounded-full font-semibold"
-              )}
-            >
-              Let&apos;s Talk
-            </Link>
+              <Link
+                href="/#contact"
+                onClick={(e) => handleNavClick(e, "#contact")}
+                className={cn(
+                  buttonVariants({ variant: "default", size: "default" }),
+                  "mt-4 w-full rounded-full font-semibold"
+                )}
+              >
+                Let&apos;s Talk
+              </Link>
+            </div>
           </div>
-        </nav>
+        </div>
       </div>
     </header>
   )
