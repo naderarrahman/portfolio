@@ -63,194 +63,199 @@ function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative scroll-mt-16 border-t border-border/60 bg-muted/5 py-24 sm:py-32"
+      className="relative scroll-mt-32 py-12 sm:py-16"
     >
-      <div className="mx-auto w-full max-w-5xl px-6">
-        <FadeIn>
-          <p className="font-mono text-xs tracking-[0.2em] text-primary uppercase">
-            06 — Contact
-          </p>
-          <h2
-            id="contact-heading"
-            className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl"
-          >
-            Get in touch
-          </h2>
-          <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
-            Have a project in mind, a question, or just want to say hi? 
-            Fill out the form below and I&apos;ll get back to you as soon as possible.
-          </p>
-        </FadeIn>
-
-        <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+        <div className="relative overflow-hidden rounded-3xl border border-border/60 bg-[#f7f4ee] p-8 sm:p-12 lg:p-16 dark:bg-[#151210] shadow-sm">
           
-          {/* Left Column: Contact Information */}
-          <FadeIn delay={0.1}>
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-semibold text-foreground mb-6">
-                  Contact Information
-                </h3>
-                <p className="text-muted-foreground leading-relaxed mb-8">
-                  Feel free to reach out through the form or directly via my contact details below.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                {/* Email */}
-                <a 
-                  href={`mailto:${profile.email}`}
-                  className="group flex items-center gap-4 rounded-xl border border-border/60 bg-card p-4 transition-colors hover:bg-muted/50"
-                >
-                  <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Mail className="size-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-muted-foreground">Email</p>
-                    <p className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {profile.email}
-                    </p>
-                  </div>
-                </a>
-
-                {/* Phone */}
-                <a 
-                  href={`tel:${profile.phone}`}
-                  className="group flex items-center gap-4 rounded-xl border border-border/60 bg-card p-4 transition-colors hover:bg-muted/50"
-                >
-                  <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Phone className="size-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-muted-foreground">Phone</p>
-                    <p className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {profile.phone}
-                    </p>
-                  </div>
-                </a>
-
-                {/* Location */}
-                <div className="flex items-center gap-4 rounded-xl border border-border/60 bg-card p-4">
-                  <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <MapPin className="size-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-muted-foreground">Location</p>
-                    <p className="text-base font-semibold text-foreground">
-                      {profile.location}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Social Links (GitHub & LinkedIn) */}
-                <div className="grid grid-cols-2 gap-4 pt-2">
-                  <a 
-                    href={profile.socials.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group flex items-center justify-center gap-3 rounded-xl border border-border/60 bg-card p-4 transition-colors hover:bg-muted/50"
-                  >
-                    <GitHubIcon className="size-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                    <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
-                      GitHub
-                    </span>
-                  </a>
-                  <a 
-                    href={profile.socials.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group flex items-center justify-center gap-3 rounded-xl border border-border/60 bg-card p-4 transition-colors hover:bg-muted/50"
-                  >
-                    <LinkedInIcon className="size-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                    <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
-                      LinkedIn
-                    </span>
-                  </a>
-                </div>
-              </div>
+          <FadeIn>
+            <div className="flex items-center gap-3 mb-4">
+              <p className="font-mono text-xs tracking-[0.2em] text-primary uppercase">
+                06 — Contact
+              </p>
             </div>
+            <h2
+              id="contact-heading"
+              className="text-3xl font-semibold tracking-tight sm:text-4xl"
+            >
+              Get in touch
+            </h2>
+            <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
+              Have a project in mind, a question, or just want to say hi? 
+              Fill out the form below and I&apos;ll get back to you as soon as possible.
+            </p>
           </FadeIn>
 
-          {/* Right Column: Contact Form */}
-          <FadeIn delay={0.2}>
-            <div className="rounded-2xl border border-border/60 bg-card p-6 sm:p-8 shadow-sm">
-              <form className="space-y-5" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                  {/* Name Input */}
+          <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+            
+            {/* Left Column: Contact Information */}
+            <FadeIn delay={0.1}>
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground mb-4">
+                    Contact Information
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed mb-8">
+                    Feel free to reach out through the form or directly via my contact details below.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  {/* Email */}
+                  <a 
+                    href={`mailto:${profile.email}`}
+                    className="group flex items-center gap-4 rounded-xl border border-border/60 bg-background/50 p-4 transition-colors hover:bg-background hover:border-primary/30"
+                  >
+                    <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <Mail className="size-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-muted-foreground">Email</p>
+                      <p className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {profile.email}
+                      </p>
+                    </div>
+                  </a>
+
+                  {/* Phone */}
+                  <a 
+                    href={`tel:${profile.phone}`}
+                    className="group flex items-center gap-4 rounded-xl border border-border/60 bg-background/50 p-4 transition-colors hover:bg-background hover:border-primary/30"
+                  >
+                    <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <Phone className="size-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-muted-foreground">Phone</p>
+                      <p className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {profile.phone}
+                      </p>
+                    </div>
+                  </a>
+
+                  {/* Location */}
+                  <div className="flex items-center gap-4 rounded-xl border border-border/60 bg-background/50 p-4">
+                    <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <MapPin className="size-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-muted-foreground">Location</p>
+                      <p className="text-base font-semibold text-foreground">
+                        {profile.location}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Social Links */}
+                  <div className="grid grid-cols-2 gap-4 pt-2">
+                    <a 
+                      href={profile.socials.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group flex items-center justify-center gap-3 rounded-xl border border-border/60 bg-background/50 p-4 transition-colors hover:bg-background hover:border-primary/30"
+                    >
+                      <GitHubIcon className="size-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                      <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                        GitHub
+                      </span>
+                    </a>
+                    <a 
+                      href={profile.socials.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group flex items-center justify-center gap-3 rounded-xl border border-border/60 bg-background/50 p-4 transition-colors hover:bg-background hover:border-primary/30"
+                    >
+                      <LinkedInIcon className="size-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                      <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                        LinkedIn
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Right Column: Contact Form */}
+            <FadeIn delay={0.2}>
+              <div className="rounded-2xl border border-border/60 bg-background/50 p-6 sm:p-8 shadow-sm">
+                <form className="space-y-5" onSubmit={handleSubmit}>
+                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                    {/* Name Input */}
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-sm font-medium text-foreground">
+                        Your Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="John Doe"
+                        className="w-full rounded-lg border border-border/60 bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+                        required
+                      />
+                    </div>
+                    {/* Email Input */}
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-sm font-medium text-foreground">
+                        Your Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="john@example.com"
+                        className="w-full rounded-lg border border-border/60 bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  {/* Message Textarea */}
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium text-foreground">
-                      Your Name
+                    <label htmlFor="message" className="text-sm font-medium text-foreground">
+                      Message
                     </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      placeholder="John Doe"
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={5}
+                      placeholder="Tell me about your project..."
+                      className="w-full resize-none rounded-lg border border-border/60 bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
                       required
                     />
                   </div>
-                  {/* Email Input */}
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-foreground">
-                      Your Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="john@example.com"
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
-                      required
-                    />
-                  </div>
-                </div>
 
-                {/* Message Textarea */}
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-foreground">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    placeholder="Tell me about your project..."
-                    className="w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
-                    required
-                  />
-                </div>
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    aria-busy={loading}
+                    className={cn(buttonVariants({ size: "lg" }), "w-full gap-2")}
+                  >
+                    <Send className="size-4" />
+                    Send Message
+                  </button>
 
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={loading}
-                  aria-busy={loading}
-                  className={cn(buttonVariants({ size: "lg" }), "w-full gap-2")}
-                >
-                  <Send className="size-4" />
-                  Send Message
-                </button>
+                  {loading ? (
+                    <p role="status" className="text-sm text-muted-foreground">
+                      Sending your message...
+                    </p>
+                  ) : null}
+                  {success ? (
+                    <p role="status" className="text-sm text-primary">
+                      {success}
+                    </p>
+                  ) : null}
+                  {error ? (
+                    <p role="alert" className="text-sm text-destructive">
+                      {error}
+                    </p>
+                  ) : null}
+                </form>
+              </div>
+            </FadeIn>
 
-                {loading ? (
-                  <p role="status" className="text-sm text-muted-foreground">
-                    Sending your message...
-                  </p>
-                ) : null}
-                {success ? (
-                  <p role="status" className="text-sm text-primary">
-                    {success}
-                  </p>
-                ) : null}
-                {error ? (
-                  <p role="alert" className="text-sm text-destructive">
-                    {error}
-                  </p>
-                ) : null}
-              </form>
-            </div>
-          </FadeIn>
-
+          </div>
         </div>
       </div>
     </section>

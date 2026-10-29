@@ -45,8 +45,9 @@ const skills = [
 
 const designations = [
   "Full-Stack Web Developer",
+  "LIS Student",
   "Next.js Developer",
-  "React Specialist",
+  "React Develoer",
   "UI/UX Enthusiast",
 ]
 

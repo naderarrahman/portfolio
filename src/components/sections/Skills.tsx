@@ -40,125 +40,132 @@ function Skills() {
     <section
       id="skills"
       aria-labelledby="skills-heading"
-      className="relative scroll-mt-16 overflow-hidden border-t border-border/60 bg-muted/10"
+      className="relative scroll-mt-32 py-12 sm:py-16"
     >
-      <div className="mx-auto w-full max-w-6xl px-6 py-24 sm:py-32">
-        <FadeIn>
-          <p className="font-mono text-xs tracking-[0.2em] text-primary uppercase">
-            02 — Skills
-          </p>
-          <h2
-            id="skills-heading"
-            className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl"
-          >
-            Skills &amp; tools
-          </h2>
-        </FadeIn>
-
-        <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20 items-center">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+        <div className="relative overflow-hidden rounded-3xl border border-border/60 bg-[#f7f4ee] p-8 sm:p-12 lg:p-16 dark:bg-[#151210] shadow-sm">
           
-          <FadeIn delay={0.1}>
-            <div className="relative flex flex-col items-center justify-center">
-              <div className="relative w-full max-w-md">
-                <IconCloud key={activeCategory} iconSlugs={activeSlugs} />
-              </div>
-              <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-border bg-background/50 px-4 py-2 text-xs text-muted-foreground font-mono backdrop-blur-sm pointer-events-none">
-                <MousePointer2 className="size-3 text-primary" />
-                <span>
-                  {activeCategory === "All" 
-                    ? "Drag to explore all skills" 
-                    : `Showing ${activeCategory} skills`}
-                </span>
-              </div>
+          <FadeIn>
+            <div className="flex items-center gap-3 mb-8">
+              <p className="font-mono text-xs tracking-[0.2em] text-primary uppercase">
+                02 — Skills
+              </p>
             </div>
+            <h2
+              id="skills-heading"
+              className="text-3xl font-semibold tracking-tight sm:text-4xl"
+            >
+              Skills &amp; tools
+            </h2>
           </FadeIn>
 
-          <FadeIn delay={0.2}>
-            <div className="flex flex-col gap-4">
-              {skills.map((group, index) => {
-                const style = categoryStyles[group.category as keyof typeof categoryStyles] || categoryStyles.Frontend
-                const Icon = style.icon
-                const isOpen = openIndex === index
-                const isActive = activeCategory === group.category
+          <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+            
+            <FadeIn delay={0.1}>
+              <div className="relative flex flex-col items-center justify-center">
+                <div className="relative w-full max-w-md">
+                  <IconCloud key={activeCategory} iconSlugs={activeSlugs} />
+                </div>
+                <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/80 px-4 py-2 text-xs text-muted-foreground font-mono backdrop-blur-sm pointer-events-none shadow-sm">
+                  <MousePointer2 className="size-3 text-primary" />
+                  <span>
+                    {activeCategory === "All" 
+                      ? "Drag to explore all skills" 
+                      : `Showing ${activeCategory} skills`}
+                  </span>
+                </div>
+              </div>
+            </FadeIn>
 
-                return (
-                  <div 
-                    key={group.category}
-                    className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
-                      isActive 
-                        ? "border-primary/50 bg-primary/5 shadow-md" 
-                        : isOpen ? "border-border bg-card" : "border-border bg-card/50 hover:bg-card"
-                    }`}
-                  >
-                    <button
-                      onClick={() => handleCardClick(index, group.category)}
-                      className="flex w-full items-center justify-between p-6 text-left"
+            <FadeIn delay={0.2}>
+              <div className="flex flex-col gap-4">
+                {skills.map((group, index) => {
+                  const style = categoryStyles[group.category as keyof typeof categoryStyles] || categoryStyles.Frontend
+                  const Icon = style.icon
+                  const isOpen = openIndex === index
+                  const isActive = activeCategory === group.category
+
+                  return (
+                    <div 
+                      key={group.category}
+                      className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
+                        isActive 
+                          ? "border-primary/50 bg-primary/5 shadow-md" 
+                          : isOpen ? "border-border/80 bg-background shadow-sm" : "border-border/60 bg-background/50 hover:bg-background"
+                      }`}
                     >
-                      <div className="flex items-center gap-4">
-                        <div className={`flex size-12 shrink-0 items-center justify-center rounded-xl ${style.bg} ${style.color}`}>
-                          <Icon className="size-6" />
-                        </div>
-                        <div>
-                          <h3 className={`text-lg font-semibold ${isActive ? "text-primary" : "text-foreground"}`}>
-                            {group.category}
-                          </h3>
-                          <p className="text-sm text-muted-foreground">
-                            {group.skills.length} skills
-                          </p>
-                        </div>
-                      </div>
-                      <ChevronDown 
-                        className={`size-5 text-muted-foreground transition-transform duration-300 ${
-                          isOpen ? "rotate-180" : ""
-                        }`} 
-                      />
-                    </button>
-
-                    <AnimatePresence>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                        >
-                          <div className="px-6 pb-6 pt-2">
-                            <p className="mb-4 text-sm text-muted-foreground">
-                              Experienced in building modern solutions using these technologies.
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                              {group.skills.map((skill) => (
-                                <span 
-                                  key={skill.name} 
-                                  className="inline-flex items-center rounded-full border border-border bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-primary/50 hover:text-primary"
-                                >
-                                  {skill.name}
-                                </span>
-                              ))}
-                            </div>
+                      <button
+                        onClick={() => handleCardClick(index, group.category)}
+                        className="flex w-full items-center justify-between p-5 sm:p-6 text-left"
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className={`flex size-12 shrink-0 items-center justify-center rounded-xl ${style.bg} ${style.color}`}>
+                            <Icon className="size-6" />
                           </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                )
-              })}
+                          <div>
+                            <h3 className={`text-lg font-semibold ${isActive ? "text-primary" : "text-foreground"}`}>
+                              {group.category}
+                            </h3>
+                            <p className="text-sm text-muted-foreground">
+                              {group.skills.length} skills
+                            </p>
+                          </div>
+                        </div>
+                        <ChevronDown 
+                          className={`size-5 text-muted-foreground transition-transform duration-300 ${
+                            isOpen ? "rotate-180" : ""
+                          }`} 
+                        />
+                      </button>
 
-              {/* Show All Button */}
-              <button
-                onClick={() => {
-                  setActiveCategory("All")
-                  setOpenIndex(null)
-                }}
-                className={`mt-2 w-full rounded-xl border border-dashed border-border py-3 text-sm font-medium transition-colors hover:border-primary/50 hover:text-primary ${
-                  activeCategory === "All" ? "bg-primary/5 text-primary border-primary/30" : "text-muted-foreground"
-                }`}
-              >
-                Show All Skills in Cloud
-              </button>
-            </div>
-          </FadeIn>
+                      <AnimatePresence>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                          >
+                            <div className="px-5 pb-5 pt-0 sm:px-6 sm:pb-6">
+                              <p className="mb-4 text-sm text-muted-foreground">
+                                Experienced in building modern solutions using these technologies.
+                              </p>
+                              <div className="flex flex-wrap gap-2">
+                                {group.skills.map((skill) => (
+                                  <span 
+                                    key={skill.name} 
+                                    className="inline-flex items-center rounded-full border border-border/60 bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-primary/50 hover:text-primary"
+                                  >
+                                    {skill.name}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  )
+                })}
 
+                {/* Show All Button */}
+                <button
+                  onClick={() => {
+                    setActiveCategory("All")
+                    setOpenIndex(null)
+                  }}
+                  className={`mt-2 w-full rounded-xl border border-dashed py-3 text-sm font-medium transition-colors ${
+                    activeCategory === "All" 
+                      ? "border-primary/50 bg-primary/5 text-primary" 
+                      : "border-border/60 text-muted-foreground hover:border-primary/50 hover:text-primary"
+                  }`}
+                >
+                  Show All Skills in Cloud
+                </button>
+              </div>
+            </FadeIn>
+
+          </div>
         </div>
       </div>
     </section>

@@ -7,7 +7,7 @@ export interface TimelineItem {
   date: string
   description?: string | string[]
   href?: string
-  icon?: React.ElementType 
+  icon?: React.ElementType
 }
 
 interface TimelineProps {
@@ -29,24 +29,23 @@ export function Timeline({ items, className = "" }: TimelineProps) {
             
             {/* Left Side: Icon/Dot and Line */}
             <div className="flex flex-col items-center">
-              {/* Icon or Dot */}
-              <div className="relative z-10 flex size-8 shrink-0 items-center justify-center rounded-full border border-border bg-background shadow-sm">
+              {/* Icon or Dot  */}
+              <div className="relative z-10 flex size-8 shrink-0 items-center justify-center rounded-full border border-border/60 bg-[#f7f4ee] dark:bg-[#151210] shadow-sm">
                 {item.icon ? (
                   <item.icon className="size-4 text-primary" />
                 ) : (
                   <div className="size-2.5 rounded-full bg-primary" />
                 )}
               </div>
-              {/* Vertical Line connecting to next item */}
+              {/* Vertical Line */}
               {!isLast && (
-                <div className="mt-1 w-px flex-1 bg-border/80" />
+                <div className="mt-1 w-px flex-1 bg-border/60" />
               )}
             </div>
 
             {/* Right Side: Content */}
             <div className={`pb-8 ${isLast ? "pb-0" : ""}`}>
               <div className="flex flex-col gap-1">
-                {/* Date */}
                 <span className="font-mono text-xs text-muted-foreground">
                   {item.date}
                 </span>
@@ -67,12 +66,10 @@ export function Timeline({ items, className = "" }: TimelineProps) {
                   </h3>
                 )}
 
-                {/* Subtitle (Company/Institution) */}
                 <p className="text-sm font-medium text-primary/80">
                   {item.subtitle}
                 </p>
                 
-                {/* Description (String or Array of Strings) */}
                 {descriptionArray.length > 0 && (
                   <div className="mt-2 space-y-2">
                     {descriptionArray.map((desc, i) => (

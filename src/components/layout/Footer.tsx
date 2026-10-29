@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { ArrowUp, Download, Mail, Send } from "lucide-react"
 
@@ -11,11 +13,20 @@ const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Skills", href: "/#skills" },
   { label: "Experience", href: "/#experience" },
+  { label: "Education", href: "/#education" }, 
   { label: "Projects", href: "/#projects" },
   { label: "Contact", href: "/#contact" },
 ]
 
 export function Footer() {
+  const handleBackToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
+
   return (
     <footer className="border-t border-border/60 bg-background">
       <div className="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
@@ -133,16 +144,17 @@ export function Footer() {
             Built with Next.js & Tailwind CSS
           </p>
           
-          {/* Back to Top Button */}
-          <Link
+          {/* Back to Top Button - Fixed Scroll Logic */}
+          <a
             href="/#home"
+            onClick={handleBackToTop}
             className="group flex items-center gap-2 text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
           >
             Back to top
             <span className="flex size-6 items-center justify-center rounded-full border border-border/60 bg-card transition-colors group-hover:border-primary/50">
               <ArrowUp className="size-3" />
             </span>
-          </Link>
+          </a>
         </div>
       </div>
     </footer>
